@@ -5,8 +5,9 @@ import serial
 # ------------------------------------------------------------------
 sys.stderr.write("*** 通信開始 ***\n")
 
+arduino_port = ([i for i in serial.tools.list_port.comports()])
 
-ser = serial.Serial('接続するarduinoのポート',9600)
+ser = serial.Serial(arduino_port[0].device)
 
 host = 'ブローカーのアドレス'
 port = 1883
